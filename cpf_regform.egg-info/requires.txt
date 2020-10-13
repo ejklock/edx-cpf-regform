@@ -1,3 +1,0 @@
-Django
-django-cpf
-django-input-mask
