@@ -30,7 +30,7 @@ setup(
     name='cpf_regform',
     version='1.0',
     description='LMS - CPF Registration Extension Form',
-    packages=['cpf_reg_form'],
+    packages=['cpf_regform'],
     install_requires=[
         'Django',
     ],
