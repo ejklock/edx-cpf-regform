@@ -33,7 +33,7 @@ setup(
     packages=['cpf_regform'],
     install_requires=[
         'Django',
-        'django-cpf',
+        'django-localflavor',
     ],
 )
 
