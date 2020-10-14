@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.db import models
-from localflavor.br.forms import BRCPFField
+
 
 
 
@@ -14,4 +14,4 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
     user = models.OneToOneField(USER_MODEL,on_delete=models.CASCADE)
-    cpf = BRCPFField
+   
