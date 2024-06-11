@@ -5,7 +5,7 @@ from .models import ExtraInfo
 
 
 class ExtraInfoForm(ModelForm):
-    cpf = BRCPFField()
+    cpf = BRCPFField(label='CPF', help_text='Insira seu CPF',required=True)
 
     """
     The fields on this form are derived from the ExtraInfo model in models.py.
