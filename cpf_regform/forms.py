@@ -1,3 +1,5 @@
+# forms.py
+
 import logging
 
 from django.forms import ModelForm
@@ -6,24 +8,21 @@ from localflavor.br.forms import BRCPFField
 
 from .models import ExtraInfo
 
-
+logger = logging.getLogger(__name__)
 class ExtraInfoForm(ModelForm):
-    """
-    The fields on this form are derived from the ExtraInfo model in models.py.
-    """
-    
-    cpf=BRCPFField(
+ 
+    cpf = BRCPFField(
         label=_("CPF"),
         help_text=_("Informe seu CPF"),
-        
     )
+
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
+        logger.debug("Initializing ExtraInfoForm with fields: %s", self.fields)
         self.fields['cpf'].required = True
-        
 
-    class Meta(object):
+    class Meta:
         model = ExtraInfo
         fields = ('cpf',)
-        labels = {'cpf': 'CPF',}
-        help_text = {'cpf': 'Informe seu CPF',}
+        labels = {'cpf': 'CPF'}
+        help_texts = {'cpf': 'Informe seu CPF'}
