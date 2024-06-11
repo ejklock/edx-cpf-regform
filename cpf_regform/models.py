@@ -12,7 +12,11 @@ class ExtraInfo(models.Model):
     """
     user = models.OneToOneField(USER_MODEL, null=True,  related_name='user+', on_delete=models.CASCADE)
     
-    cpf = models.CharField(max_length=11)  # CPF typically is an 11-digit number in Brazil
+    cpf = models.CharField(
+        verbose_name="CPF",
+        max_length=11,
+    )   
+    
     
     def __str__(self):
         result = '{0.user} {0.cpf}'

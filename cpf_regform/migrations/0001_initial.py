@@ -1,4 +1,3 @@
-import django.db.models.deletion
 from django.conf import settings
 from django.db import migrations, models
 
@@ -16,7 +15,7 @@ class Migration(migrations.Migration):
             name='ExtraInfo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cpf', models.CharField(verbose_name="CPF", max_length=100))
+                ('cpf', models.CharField(verbose_name="CPF", max_length=11)),
             ],
         ),
     ]
