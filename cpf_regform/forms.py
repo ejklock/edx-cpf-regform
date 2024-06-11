@@ -1,7 +1,7 @@
-from .models import ExtraInfo
 from django.forms import ModelForm
 from localflavor.br.forms import BRCPFField
 
+from .models import ExtraInfo
 
 
 class ExtraInfoForm(ModelForm):
@@ -12,7 +12,15 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
+        self.fields['cpf'].required=True
 
     class Meta(object):
        model = ExtraInfo
+       fields = ('cpf')
+       labels = {
+           'cpf': 'CPF',
+       }
+       help_text={
+           'cpf': 'Insira seu CPF',
+       }
     

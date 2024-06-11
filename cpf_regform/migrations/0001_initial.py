@@ -1,11 +1,11 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
-from django.db import migrations, models
+import django.db.models.deletion
 from django.conf import settings
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
+
+    initial = True
 
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
@@ -15,9 +15,8 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ExtraInfo',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('cpf', models.CharField(max_length=100, verbose_name=b'CPF', error_messages={b'required': 'Informe seu CPF', b'invalid': "Inválido"})),
-                ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('country', models.CharField(verbose_name="CPF", max_length=100))
             ],
         ),
     ]
