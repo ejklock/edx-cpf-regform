@@ -21,8 +21,8 @@
 # Imports ###########################################################
 
 import os
-from setuptools import setup
 
+from setuptools import setup
 
 # Main ##############################################################
 
