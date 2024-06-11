@@ -10,6 +10,7 @@ from .models import ExtraInfo
 
 logger = logging.getLogger(__name__)
 class ExtraInfoForm(ModelForm):
+    cpf = BRCPFField(label=_("CPF"), required=True)
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
         logger.debug("Initializing ExtraInfoForm with fields: %s", self.fields)
