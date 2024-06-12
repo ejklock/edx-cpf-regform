@@ -1,4 +1,6 @@
 
+import re
+
 from django.conf import settings
 from django.db import models
 from localflavor.br.models import BRCPFField
