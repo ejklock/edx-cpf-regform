@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='ExtraInfo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('cpf', models.CharField(verbose_name="CPF", max_length=11)),
+                ('cpf', models.CharField(verbose_name="CPF", max_length=11,unique=True)),
             ],
         ),
     ]

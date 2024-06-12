@@ -13,11 +13,17 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
     user = models.OneToOneField(USER_MODEL, null=True,  related_name='user+', on_delete=models.CASCADE)
-    
     cpf = BRCPFField()
     
-    def clean_cpf(self):
-        return self.cpf
+    def __init__(self, *args, **kwargs):
+        if 'cpf' in kwargs:
+            kwargs['cpf'] = self.sanitize_cpf(kwargs['cpf'])
+        super().__init__(*args, **kwargs)
+    
+    @staticmethod
+    def sanitize_cpf(cpf):
+        return ''.join(filter(str.isdigit, cpf.replace('.', '').replace('-', '')))
+    
     def __str__(self):
         result = '{0.user} {0.cpf}'
         return result.format(self)
